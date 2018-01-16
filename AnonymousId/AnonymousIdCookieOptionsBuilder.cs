@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 
 namespace ReturnTrue.AspNetCore.Identity.Anonymous
 {
@@ -6,16 +7,16 @@ namespace ReturnTrue.AspNetCore.Identity.Anonymous
     {
         private const string DEFAULT_COOKIE_NAME = ".ASPXANONYMOUS";
         private const string DEFAULT_COOKIE_PATH = "/";
-        private const int DEFAULT_COOKIE_TIMEOUT = 100000;
-        private const int MINIMUM_COOKIE_TIMEOUT = 1;
-        private const int MAXIMUM_COOKIE_TIMEOUT = 60 * 24 * 365 * 2;
-        private const bool DEFAULT_COOKIE_REQUIRE_SSL = false;
+        private const int DEFAULT_COOKIE_TIMEOUT_SECONDS = 100000;
+        private const int MINIMUM_COOKIE_TIMEOUT_SECONDS = 1;
+        private const int MAXIMUM_COOKIE_TIMEOUT_SECONDS = 60 * 60 * 24 * 365 * 2; // 2 years?
+        private const CookieSecurePolicy DEFAULT_SECURE_POLICY = CookieSecurePolicy.SameAsRequest;
         
         private string cookieName;
         private string cookiePath;
         private int? cookieTimeout;
         private string cookieDomain;
-        private bool? cookieRequireSsl;
+        private CookieSecurePolicy? cookieSecurePolicy;
 
         public AnonymousIdCookieOptionsBuilder SetCustomCookieName(string cookieName)
         {
@@ -29,9 +30,9 @@ namespace ReturnTrue.AspNetCore.Identity.Anonymous
             return this;
         }
 
-        public AnonymousIdCookieOptionsBuilder SetCustomCookieTimeout(int cookieTimeout)
+        public AnonymousIdCookieOptionsBuilder SetCustomCookieExpiration(int cookieTimeoutInSeconds)
         {
-            this.cookieTimeout = Math.Min(Math.Max(MINIMUM_COOKIE_TIMEOUT, cookieTimeout), MAXIMUM_COOKIE_TIMEOUT);
+            this.cookieTimeout = Math.Min(Math.Max(MINIMUM_COOKIE_TIMEOUT_SECONDS, cookieTimeoutInSeconds), MAXIMUM_COOKIE_TIMEOUT_SECONDS);
             return this;
         }
 
@@ -41,29 +42,37 @@ namespace ReturnTrue.AspNetCore.Identity.Anonymous
             return this;
         }
 
-        public AnonymousIdCookieOptionsBuilder SetCustomCookieRequireSsl(bool cookieRequireSsl)
+        public AnonymousIdCookieOptionsBuilder SetCustomCookieSecurePolicy(CookieSecurePolicy cookieSecurePolicy)
         {
-            this.cookieRequireSsl = cookieRequireSsl;
+            this.cookieSecurePolicy = cookieSecurePolicy;
             return this;
         }
 
-        public AnonymousIdCookieOptions Build()
+        public CookieBuilder Build()
         {
-            AnonymousIdCookieOptions options = new AnonymousIdCookieOptions
+            CookieBuilder builder = new CookieBuilder()
             {
                 Name = cookieName ?? DEFAULT_COOKIE_NAME,
                 Path = cookiePath ?? DEFAULT_COOKIE_PATH,
-                Timeout = cookieTimeout ?? DEFAULT_COOKIE_TIMEOUT,
-                Expires = DateTime.UtcNow.AddSeconds(cookieTimeout ?? DEFAULT_COOKIE_TIMEOUT),
-                Secure = cookieRequireSsl ?? DEFAULT_COOKIE_REQUIRE_SSL
+                Expiration = TimeSpan.FromSeconds(cookieTimeout ?? DEFAULT_COOKIE_TIMEOUT_SECONDS),
+                //Expires = DateTime.UtcNow.AddSeconds(cookieTimeout ?? DEFAULT_COOKIE_TIMEOUT_SECONDS),
+                SecurePolicy = cookieSecurePolicy ?? DEFAULT_SECURE_POLICY
             };
+            //AnonymousIdCookieOptions options = new AnonymousIdCookieOptions
+            //{
+            //    Name = cookieName ?? DEFAULT_COOKIE_NAME,
+            //    Path = cookiePath ?? DEFAULT_COOKIE_PATH,
+            //    Timeout = cookieTimeout ?? DEFAULT_COOKIE_TIMEOUT_SECONDS,
+            //    Expires = DateTime.UtcNow.AddSeconds(cookieTimeout ?? DEFAULT_COOKIE_TIMEOUT),
+            //    Secure = cookieSecurePolicy ?? DEFAULT_SECURE_POLICY
+            //};
 
             if (!string.IsNullOrWhiteSpace(cookieDomain))
             {
-                options.Domain = cookieDomain;
+                builder.Domain = cookieDomain;
             }
 
-            return options;
+            return builder;
         }
     }
 }

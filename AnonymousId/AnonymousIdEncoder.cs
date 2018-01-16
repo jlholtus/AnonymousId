@@ -13,6 +13,11 @@ namespace ReturnTrue.AspNetCore.Identity.Anonymous
                 return null;
             }
 
+            if (data.AnonymousId == null)
+            {
+                throw new ArgumentException("No anonymous id set in data; make sure you've not used an expiration data in the past", nameof(data));
+            }
+
             byte[] bufferId = Encoding.UTF8.GetBytes(data.AnonymousId);
             byte[] bufferIdLenght = BitConverter.GetBytes(bufferId.Length);
             byte[] bufferDate = BitConverter.GetBytes(data.ExpireDate.ToFileTimeUtc());
