@@ -2,19 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <PackageId>ReturnTrue.AspNetCore.Identity.Anonymous</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
-    <Authors>Alessandro Riperi</Authors>
-    <Description>Middleware for ASP.NET Core to enable the tracking of anonymous users</Description>
+    <PackageId>Onots.AspNetCore.Identity.Anonymous</PackageId>
+    <Authors>Alessandro Riperi, Jorn Holtus</Authors>
+    <Description>Middleware for ASP.NET Core to enable the tracking of anonymous users
+
+Based on the initial work by Alessandro Riperi</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
     <PackageTags>AspNetCore Identity Anonymous</PackageTags>
     <Copyright>This project is licensed under the terms of the MIT license.</Copyright>
-    <PackageLicenseUrl>https://github.com/aleripe/AnonymousId/blob/master/License.md</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/aleripe/AnonymousId</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/aleripe/AnonymousId</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/jlholtus/AnonymousId/blob/master/License.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/jlholtus/AnonymousId</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jlholtus/AnonymousId</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <RootNamespace>Onots.AspNetCore.Identity.Anonymous</RootNamespace>
+    <AssemblyName>Onots.AspNetCore.Identity.Anonymous</AssemblyName>
+    <Company></Company>
+    <AssemblyVersion>1.0</AssemblyVersion>
+    <FileVersion>1.0</FileVersion>
+    <Version>1.0.0-alpha</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace ReturnTrue.AspNetCore.Identity.Anonymous
+namespace Onots.AspNetCore.Identity.Anonymous
 {
     public class AnonymousIdMiddleware
     {

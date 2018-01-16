@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace AnonymousId.Web
+namespace Onots.AspNetCore.Identity.Anonymous.Web
 {
     public class Program
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ReturnTrue.AspNetCore.Identity.Anonymous;
+using Onots.AspNetCore.Identity.Anonymous;
 
-namespace AnonymousId.Web.Controllers
+namespace Onots.AspNetCore.Identity.Anonymous.Web.Controllers
 {
     public class HomeController : Controller
     {

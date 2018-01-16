@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace ReturnTrue.AspNetCore.Identity.Anonymous
+namespace Onots.AspNetCore.Identity.Anonymous
 {
     public static class AnonymousIdMiddlewareExtensions
     {

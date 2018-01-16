@@ -2,13 +2,12 @@
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Http.Internal;
 using Moq;
-using ReturnTrue.AspNetCore.Identity.Anonymous;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace AnonymousId.Tests
+namespace Onots.AspNetCore.Identity.Anonymous.Tests
 {
     public class AnonymousIdMiddlewareTests
     {

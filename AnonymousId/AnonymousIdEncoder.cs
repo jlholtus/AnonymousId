@@ -2,7 +2,7 @@
 using System;
 using System.Text;
 
-namespace ReturnTrue.AspNetCore.Identity.Anonymous
+namespace Onots.AspNetCore.Identity.Anonymous
 {
     internal static class AnonymousIdEncoder
     {

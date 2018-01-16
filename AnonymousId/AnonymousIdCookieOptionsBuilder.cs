@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 
-namespace ReturnTrue.AspNetCore.Identity.Anonymous
+namespace Onots.AspNetCore.Identity.Anonymous
 {
     public class AnonymousIdCookieOptionsBuilder
     {

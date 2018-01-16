@@ -1,8 +1,7 @@
-﻿using ReturnTrue.AspNetCore.Identity.Anonymous;
-using System;
+﻿using System;
 using Xunit;
 
-namespace AnonymousId.Tests
+namespace Onots.AspNetCore.Identity.Anonymous.Tests
 {
     public class AnonymousIdEncoderTests
     {

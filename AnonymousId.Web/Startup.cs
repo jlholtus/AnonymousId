@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using ReturnTrue.AspNetCore.Identity.Anonymous;
+using Onots.AspNetCore.Identity.Anonymous;
 
-namespace AnonymousId.Web
+namespace Onots.AspNetCore.Identity.Anonymous.Web
 {
     public class Startup
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReturnTrue.AspNetCore.Identity.Anonymous
+namespace Onots.AspNetCore.Identity.Anonymous
 {
     internal class AnonymousIdData
     {
