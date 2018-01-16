@@ -20,12 +20,12 @@ Register with options:
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 {
     app.UseAnonymousId(new AnonymousIdCookieOptionsBuilder()
-      .SetCustomCookieName("MY_COOKIE_NAME")        // Custom cookie name
-      .SetCustomCookieRequireSsl(true)              // Requires SSL
-      .SetCustomCookieTimeout(120)                  // Custom timeout in seconds
-      .SetCustomCookieDomain("www.contoso.com")     // Custom domain
-      .SetCustomCookiePath("/path")                 // Custom path
-      .SetCustomHeaderName("AnonymousId"));         // Custom header name
+      .SetCustomCookieName("MY_COOKIE_NAME")					// Custom cookie name
+      .SetCustomCookieSecurePolicy(CookieSecurePolicy.Always)	// Requires SSL
+      .SetCustomCookieTimeout(120)                 				// Custom timeout in seconds
+      .SetCustomCookieDomain("www.contoso.com")    				// Custom domain
+      .SetCustomCookiePath("/path")               				// Custom path
+      .SetCustomHeaderName("AnonymousId"));  			 		// Custom header name
     ....
 }
 ```
